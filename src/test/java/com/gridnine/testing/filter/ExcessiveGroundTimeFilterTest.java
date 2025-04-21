@@ -19,7 +19,7 @@ public class ExcessiveGroundTimeFilterTest {
                 now, now.plusHours(2),
                 now.plusHours(3), now.plusHours(5)
         );
-        assertTrue(filter.isValid(flight));
+        assertTrue(filter.matches(flight));
     }
 
     @Test
@@ -29,6 +29,6 @@ public class ExcessiveGroundTimeFilterTest {
                 now, now.plusHours(2),
                 now.plusHours(5), now.plusHours(6)
         );
-        assertFalse(filter.isValid(flight));
+        assertFalse(filter.matches(flight));
     }
 }

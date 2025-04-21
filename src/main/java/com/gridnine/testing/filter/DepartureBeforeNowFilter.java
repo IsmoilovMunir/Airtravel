@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 
 public class DepartureBeforeNowFilter implements FlightFilter {
     @Override
-    public boolean isValid(Flight flight) {
+    public boolean matches(Flight flight) {
         return flight.getSegments().stream()
                 .noneMatch(segment -> segment.getDepartureDate().isBefore(LocalDateTime.now()));
     }

@@ -8,7 +8,7 @@ import java.util.List;
 
 public class ExcessiveGroundTimeFilter implements FlightFilter{
     @Override
-    public boolean isValid(Flight flight) {
+    public boolean matches(Flight flight) {
         List<Segment> segments = flight.getSegments();
         long totalGroundTimeMinutes = 0;
         for (int i = 0; i < segments.size() - 1; i++) {

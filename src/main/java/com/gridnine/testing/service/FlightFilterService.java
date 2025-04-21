@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 public class FlightFilterService {
     public List<Flight> filter(List<Flight> flights, FlightFilter filter) {
         return flights.stream()
-                .filter(filter::isValid)
+                .filter(filter::matches)
                 .collect(Collectors.toList());
     }
 

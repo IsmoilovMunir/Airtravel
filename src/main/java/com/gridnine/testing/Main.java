@@ -11,7 +11,7 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        List<Flight> flights = FlightBuilder.createFlights();
+        List<Flight> flights = FlightBuilder.createFlightTestDataFactory();
         FlightFilterService filterService = new FlightFilterService();
 
         System.out.println("Все полёты:");

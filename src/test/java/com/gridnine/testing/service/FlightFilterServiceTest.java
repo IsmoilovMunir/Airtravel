@@ -3,7 +3,6 @@ package com.gridnine.testing.service;
 import com.gridnine.testing.builder.FlightBuilder;
 import com.gridnine.testing.filter.ArrivalBeforeDepartureFilter;
 import com.gridnine.testing.filter.DepartureBeforeNowFilter;
-import com.gridnine.testing.filter.ExcessiveGroundTimeFilter;
 import com.gridnine.testing.model.Flight;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -18,7 +17,7 @@ public class FlightFilterServiceTest {
 
     @BeforeEach
     void setup() {
-        testFlights = FlightBuilder.createFlights();
+        testFlights = FlightBuilder.createFlightTestDataFactory();
         filterService = new FlightFilterService();
     }
 

@@ -9,7 +9,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class FlightBuilder {
-    public static List<Flight> createFlights() {
+    public static List<Flight> createFlightTestDataFactory() {
         LocalDateTime threeDaysFromNow = LocalDateTime.now().plusDays(3);
 
         return Arrays.asList(

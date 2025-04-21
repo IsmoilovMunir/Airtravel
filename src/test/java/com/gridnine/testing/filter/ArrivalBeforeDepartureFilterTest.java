@@ -2,11 +2,9 @@ package com.gridnine.testing.filter;
 
 import com.gridnine.testing.model.Flight;
 import com.gridnine.testing.model.Segment;
-import com.gridnine.testing.test.TestUtils;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDateTime;
-import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -21,7 +19,7 @@ public class ArrivalBeforeDepartureFilterTest {
         Flight flight = new Flight(List.of(invalidSegment));
 
         ArrivalBeforeDepartureFilter filter = new ArrivalBeforeDepartureFilter();
-        assertFalse(filter.isValid(flight), "Рейс с прилётом раньше вылета должен быть отфильтрован (false)");
+        assertFalse(filter.matches(flight), "Рейс с прилётом раньше вылета должен быть отфильтрован (false)");
     }
 
 
@@ -34,7 +32,7 @@ public class ArrivalBeforeDepartureFilterTest {
         Flight flight = new Flight(List.of(validSegment));
 
         ArrivalBeforeDepartureFilter filter = new ArrivalBeforeDepartureFilter();
-        assertTrue(filter.isValid(flight), "Рейс с корректными сегментами должен быть пропущен (true)");
+        assertTrue(filter.matches(flight), "Рейс с корректными сегментами должен быть пропущен (true)");
     }
     @Test
     void testFlightWithOneInvalidSegmentAmongManyShouldBeFilteredOut() {
@@ -45,6 +43,6 @@ public class ArrivalBeforeDepartureFilterTest {
         Flight flight = new Flight(List.of(valid, invalid));
         ArrivalBeforeDepartureFilter filter = new ArrivalBeforeDepartureFilter();
 
-        assertFalse(filter.isValid(flight), "Рейс с хотя бы одним некорректным сегментом должен быть отфильтрован");
+        assertFalse(filter.matches(flight), "Рейс с хотя бы одним некорректным сегментом должен быть отфильтрован");
     }
 }

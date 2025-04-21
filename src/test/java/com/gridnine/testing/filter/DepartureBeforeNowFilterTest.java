@@ -16,14 +16,14 @@ public class DepartureBeforeNowFilterTest {
     void testFlightWithPastDepartureShouldBeFilteredOut() {
         LocalDateTime now = LocalDateTime.now();
         Flight flight = TestUtils.createFlight(now.minusDays(1), now.plusHours(1));
-        assertFalse(filter.isValid(flight));
+        assertFalse(filter.matches(flight));
     }
 
     @Test
     void testFlightWithFutureDepartureShouldBeValid() {
         LocalDateTime now = LocalDateTime.now();
         Flight flight = TestUtils.createFlight(now.plusHours(1), now.plusHours(2));
-        assertTrue(filter.isValid(flight));
+        assertTrue(filter.matches(flight));
     }
 }
 
